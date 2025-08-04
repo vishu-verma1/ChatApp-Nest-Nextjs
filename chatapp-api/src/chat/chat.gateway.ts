@@ -208,14 +208,14 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
     @MessageBody() data: { senderId: string; receiverId: string },
     @ConnectedSocket() client: Socket,
   ) {
-    // console.log(data.receiverId, data.senderId, '-------');
+    console.log(data.receiverId, data.senderId, '-------');
     const messages = await this.chatService.getMessage(
       data.senderId,
       data.receiverId,
     );
 
     // await this.chatService.markMessageAsSeen(data.receiverId, data.senderId);
-    // console.log(messages, '-kiookoio');
+    console.log( '-kiookoio');
     client.emit('chatHistory', messages);
   }
 

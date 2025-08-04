@@ -233,10 +233,10 @@ const ConversationComponent = ({ user, receiverUser, activeUsers, messages, setM
     }, [socket, user?.id, receiverUser?.id, isChatwindowModalOpen,]);
 
     useEffect(() => {  //geting history of chat 
-        if (socket && user && receiverUser) {
+        if (socket && user && receiverUser ) {
             // console.log('Fetching chat history for:', { senderId: user.id, receiverId: receiverUser.id });
             socket.emit('getChatHistory', { senderId: user.id, receiverId: receiverUser.id });
-            // console.log("first", socket)
+            console.log("first", socket) 
             setMessages([]);
         }
     }, [receiverUser?.id, isChatwindowModalOpen]);
